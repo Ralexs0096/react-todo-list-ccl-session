@@ -4,24 +4,25 @@ import Children from './Children';
 const Input = () => {
   const inputRef = useRef(null);
 
-  const handleClick = () => {
-    console.log(inputRef.current.value);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    console.log(inputRef.current.name);
   };
 
   return (
     <>
-      <div className="input-container">
+      <form className="input-container" onSubmit={handleSubmit}>
         <input
           ref={inputRef}
           className="input"
+          name="myInput"
           type="text"
           placeholder="Insert a TO-DO"
         />
 
-        <button className="add-todo" onClick={handleClick}>
-          Add
-        </button>
-      </div>
+        <button className="add-todo">Add</button>
+      </form>
       <Children />
     </>
   );
