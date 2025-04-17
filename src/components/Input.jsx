@@ -2,39 +2,52 @@ import React, { useState } from 'react';
 import Children from './Children';
 
 const Input = () => {
-  const [counter, setCounter] = useState(10);
-  const [userInfo, setUserInfo] = useState({
-    firstName: 'Julio',
-    lastName: 'Martinez',
-    age: 20
+  const [input, setInput] = useState({
+    input: '',
+    inputTwo: ''
   });
 
-  const increment = () => {
-    setCounter(counter + 1);
-    // setUserInfo({ ...userInfo, firstName: 'Alex' });
-    setUserInfo((prev) => ({
-      ...prev,
-      firstName: 'Alvison'
-    }));
-  };
+  const handleChange = (e) => {
+    if (e.target.name === 'input') {
+      setInput((prev) => {
+        return {
+          ...prev,
+          input: e.target.value
+        };
+      });
+    }
 
-  const decrement = () => {
-    setCounter(counter - 1);
+    if (e.target.name === 'inputTwo') {
+      setInput({
+        ...input,
+        inputTwo: e.target.value
+      });
+    }
   };
 
   return (
     <>
       <div className="input-container">
-        <input className="input" type="text" placeholder="Insert a TO-DO" />
-        <h3>{counter}</h3>
-        <h3>
-          {userInfo.firstName} - {userInfo.lastName}
-        </h3>
-        <button className="add-todo" onClick={decrement}>
-          -
-        </button>
-        <button className="add-todo" onClick={increment}>
-          +
+        <input
+          className="input"
+          value={input.input}
+          name="input"
+          onChange={handleChange}
+          type="text"
+          placeholder="Insert a TO-DO"
+        />
+
+        <input
+          className="input"
+          value={input.inputTwo}
+          name="inputTwo"
+          onChange={handleChange}
+          type="text"
+          placeholder="Insert a TO-DO"
+        />
+
+        <button className="add-todo" onClick={undefined}>
+          Add
         </button>
       </div>
       <Children />
