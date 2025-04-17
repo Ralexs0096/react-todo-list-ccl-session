@@ -8,21 +8,11 @@ const Input = () => {
   });
 
   const handleChange = (e) => {
-    if (e.target.name === 'input') {
-      setInput((prev) => {
-        return {
-          ...prev,
-          input: e.target.value
-        };
-      });
-    }
-
-    if (e.target.name === 'inputTwo') {
-      setInput({
-        ...input,
-        inputTwo: e.target.value
-      });
-    }
+    // console.log({ name: e.target.name }, { value: e.target.value });
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value
+    });
   };
 
   return (
