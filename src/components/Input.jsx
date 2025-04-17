@@ -1,29 +1,38 @@
-import React, { useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Children from './Children';
 
 const Input = () => {
-  const inputRef = useRef(null);
+  const [input, setInput] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // useEffect(
+  //   () => {}, // callback effect
+  //   [] // dependencies array
+  // )
 
-    console.log(inputRef.current.name);
-  };
+  useEffect(() => {
+    // side effects
+    console.log('Component mounted');
+    if (input.length > 6) {
+      console.log('test');
+    }
+  }, [input]);
 
   return (
     <>
-      <form className="input-container" onSubmit={handleSubmit}>
+      <div className="input-container">
         <input
-          ref={inputRef}
           className="input"
-          name="myInput"
+          name="input"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
           type="text"
           placeholder="Insert a TO-DO"
         />
 
         <button className="add-todo">Add</button>
-      </form>
-      <Children />
+      </div>
+      {/* conditional rendering */}
+      {input.length > 5 && input.length < 10 ? <Children /> : null}
     </>
   );
 };
