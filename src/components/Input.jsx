@@ -10,12 +10,14 @@ const Input = () => {
   // )
 
   useEffect(() => {
-    // side effects
-    console.log('Component mounted');
-    if (input.length > 6) {
-      console.log('test');
-    }
-  }, [input]);
+    const fetchPokemons = async () => {
+      const response = await fetch('https://pokeapi.co/api/v2/ability/1');
+      const data = await response.json();
+      console.log(data.pokemon);
+    };
+
+    fetchPokemons();
+  }, []);
 
   return (
     <>
