@@ -30,10 +30,10 @@ const Input = () => {
         <h3>
           {userInfo.firstName} - {userInfo.lastName}
         </h3>
-        <button class="add-todo" onClick={decrement}>
+        <button className="add-todo" onClick={decrement}>
           -
         </button>
-        <button class="add-todo" onClick={increment}>
+        <button className="add-todo" onClick={increment}>
           +
         </button>
       </div>
