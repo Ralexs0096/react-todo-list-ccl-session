@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+/* 
 :root {
   --background-color: #121212;
   --container-background: #1e1e1e;
@@ -104,4 +107,4 @@ h1 {
 
 .delete-btn:hover {
   color: var(--delete-button-hover);
-}
+} */
