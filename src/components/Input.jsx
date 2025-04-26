@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Children from './Children';
+import ChildrenComponent from './ChildrenComponent';
 
 const Input = () => {
   const [input, setInput] = useState('');
@@ -34,7 +34,7 @@ const Input = () => {
         <button className="add-todo">Add</button>
       </div>
       {/* conditional rendering */}
-      {input.length > 5 && input.length < 10 ? <Children /> : null}
+      {input.length > 5 && input.length < 10 ? <ChildrenComponent /> : null}
     </>
   );
 };
